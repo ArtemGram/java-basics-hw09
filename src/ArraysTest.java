@@ -13,19 +13,27 @@ public class ArraysTest {
   @DataProvider(name = "ArrayUtil")
   public static Object[][] arrays() {
     return new Object[][]{
-        {
-            new String[]{"Python", "JAVA", "PHP", "C#", "C++", "SQL"},
-            new String[]{"MySQL", "SQL", "SQLite", "Oracle", "PostgreSQL", "DB2", "JAVA"},
-            new String[]{"JAVA", "SQL"}
-        }
-        // TODO add 2 more test data here
-    };
+            {
+                    new String[]{"Python", "JAVA", "PHP", "C#", "C++", "SQL"},
+                    new String[]{"MySQL", "SQL", "SQLite", "Oracle", "PostgreSQL", "DB2", "JAVA"},
+                    new String[]{"JAVA", "SQL"}
+            },
+            {
+                    new String[]{"the", "boy", "caught", "a", "fish"},
+                    new String[]{"a", "fish", "caught", "the", "boy"},
+                    new String[]{"the", "a", "caught", "fish", "boy"}
+            },
+            {
+                    new String[]{"there", "is", "some", "text"},
+                    new String[]{"i", "don`t", "use", "any", "text"},
+                    new String[]{"text"}
+            }
+     };
   }
-
   @Test(dataProvider = "ArrayUtil")
   public void testFindCommon(String[] array1, String[] array2, String[] expectedResult) {
 
     assertEquals(ArrayUtil.findCommon(array1, array2), expectedResult,
-        "Common elements are not correct");
+            "Common elements are not correct");
   }
 }
